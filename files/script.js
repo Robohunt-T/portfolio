@@ -1,33 +1,33 @@
 /* ============================================================
    CUSTOM CURSOR
 ============================================================ */
-const dot = document.getElementById('cursorDot');
-const ring = document.getElementById('cursorRing');
-let mouseX = 0, mouseY = 0;
-let dotX = 0, dotY = 0;
-let ringX = 0, ringY = 0;
+// const dot = document.getElementById('cursorDot');
+// const ring = document.getElementById('cursorRing');
+// let mouseX = 0, mouseY = 0;
+// let dotX = 0, dotY = 0;
+// let ringX = 0, ringY = 0;
 
-document.addEventListener('mousemove', (e) => {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
-});
+// document.addEventListener('mousemove', (e) => {
+//   mouseX = e.clientX;
+//   mouseY = e.clientY;
+// });
 
-function animateCursor() {
-  dotX += (mouseX - dotX) * 0.5;
-  dotY += (mouseY - dotY) * 0.5;
-  ringX += (mouseX - ringX) * 0.12;
-  ringY += (mouseY - ringY) * 0.12;
-  dot.style.transform = `translate(${dotX - 4}px, ${dotY - 4}px)`;
-  ring.style.transform = `translate(${ringX - 18}px, ${ringY - 18}px)`;
-  requestAnimationFrame(animateCursor);
-}
-animateCursor();
+// function animateCursor() {
+//   dotX += (mouseX - dotX) * 0.5;
+//   dotY += (mouseY - dotY) * 0.5;
+//   ringX += (mouseX - ringX) * 0.12;
+//   ringY += (mouseY - ringY) * 0.12;
+//   dot.style.transform = `translate(${dotX - 4}px, ${dotY - 4}px)`;
+//   ring.style.transform = `translate(${ringX - 18}px, ${ringY - 18}px)`;
+//   requestAnimationFrame(animateCursor);
+// }
+// animateCursor();
 
-const hoverEls = document.querySelectorAll('a, button, .service-card, .product-card, .project-card, .blog-card, .filter-btn');
-hoverEls.forEach(el => {
-  el.addEventListener('mouseenter', () => ring.classList.add('hovering'));
-  el.addEventListener('mouseleave', () => ring.classList.remove('hovering'));
-});
+// const hoverEls = document.querySelectorAll('a, button, .service-card, .product-card, .project-card, .blog-card, .filter-btn');
+// hoverEls.forEach(el => {
+//   el.addEventListener('mouseenter', () => ring.classList.add('hovering'));
+//   el.addEventListener('mouseleave', () => ring.classList.remove('hovering'));
+// });
 
 /* ============================================================
    NAVBAR SCROLL
@@ -111,7 +111,7 @@ const statsObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       const nums = entry.target.querySelectorAll('.stat-num');
-      const data = [{ v: 200, s: '+' }, { v: 98, s: '%' }, { v: 47, s: '+' }];
+      const data = [{ v: 200, s: '+' }, { v: 98, s: '%' }, { v: 10, s: '+' }];
       nums.forEach((el, i) => animateCount(el, data[i].v, data[i].s));
       statsObserver.unobserve(entry.target);
     }

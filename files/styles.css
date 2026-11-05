@@ -79,7 +79,7 @@ body {
   font-weight: 400;
   line-height: 1.75;
   overflow-x: hidden;
-  cursor: none;
+  /* cursor: none; */
   /* Subtle warm texture */
   background-image: radial-gradient(circle at 20% 20%, rgba(36, 81, 184, 0.04) 0%, transparent 60%),
     radial-gradient(circle at 80% 80%, rgba(13, 122, 138, 0.04) 0%, transparent 60%);
@@ -88,7 +88,7 @@ body {
 /* ============================================================
    CURSOR — Visible on light bg
 ============================================================ */
-.cursor-dot {
+/* .cursor-dot {
   width: 10px;
   height: 10px;
   background: var(--blue-mid);
@@ -119,7 +119,7 @@ body {
   height: 54px;
   border-color: var(--blue-mid);
   background: rgba(36, 81, 184, 0.06);
-}
+} */
 
 /* ============================================================
    GRID BACKGROUND — Very subtle on light
@@ -304,7 +304,7 @@ nav.scrolled {
   gap: 5px;
   background: none;
   border: none;
-  cursor: none;
+  /* cursor: none; */
   padding: 8px;
 }
 
@@ -381,7 +381,7 @@ nav.scrolled {
   padding: 16px 36px;
   border-radius: 8px;
   transition: all 0.25s ease;
-  cursor: none;
+  /* cursor: none; */
   border: none;
 }
 
@@ -497,9 +497,13 @@ nav.scrolled {
   top: 50%;
   transform: translateY(-50%);
   width: clamp(260px, 36vw, 500px);
-  opacity: 0.92;
+  opacity: 0.82;
   animation: float 6s ease-in-out infinite;
   filter: drop-shadow(0 20px 48px rgba(26, 58, 143, 0.2));
+}
+
+.hero-robot img {
+  border-radius: 5px;
 }
 
 @keyframes float {
@@ -516,9 +520,11 @@ nav.scrolled {
 
 .hero-content {
   padding: 80px 0;
-  /* max-width: 640px; */
+  min-width: 1200px;
   position: relative;
   z-index: 10;
+  /* background-color: red; */
+  /* background-color: red; */
 }
 
 .hero-badge {
@@ -591,7 +597,7 @@ nav.scrolled {
   color: var(--text-body);
   font-size: 1.1rem;
   font-weight: 400;
-  max-width: 520px;
+  max-width: 800px;
   margin-bottom: 40px;
   line-height: 1.85;
 }
@@ -971,7 +977,7 @@ nav.scrolled {
   position: relative;
   overflow: hidden;
   transition: all 0.35s ease;
-  cursor: none;
+  /* cursor: none; */
   box-shadow: var(--shadow-sm);
 }
 
@@ -1076,7 +1082,7 @@ nav.scrolled {
   border-radius: 16px;
   overflow: hidden;
   transition: all 0.35s ease;
-  cursor: none;
+  /* cursor: none; */
   box-shadow: var(--shadow-sm);
 }
 
@@ -1189,7 +1195,7 @@ nav.scrolled {
   color: var(--text-body);
   padding: 10px 24px;
   border-radius: 50px;
-  cursor: none;
+  /* cursor: none; */
   transition: all 0.2s;
   box-shadow: var(--shadow-sm);
 }
@@ -1213,7 +1219,7 @@ nav.scrolled {
   border: 1.5px solid var(--border);
   border-radius: 16px;
   overflow: hidden;
-  cursor: none;
+  /* cursor: none; */
   transition: all 0.35s ease;
   box-shadow: var(--shadow-sm);
 }
@@ -1322,6 +1328,91 @@ nav.scrolled {
 }
 
 /* ============================================================
+   GALLERY SECTION
+============================================================ */
+#gallery {
+  padding: 120px 0;
+  background: var(--bg-white);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.35s ease;
+  cursor: pointer;
+  min-height: 280px;
+}
+
+.gallery-item:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.gallery-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--bg-soft), var(--bg-section));
+}
+
+.gallery-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.35s ease;
+}
+
+.gallery-item:hover .gallery-img-wrapper img {
+  transform: scale(1.08);
+}
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, 
+    rgba(26, 58, 143, 0.75) 0%, 
+    rgba(36, 81, 184, 0.65) 50%, 
+    rgba(13, 122, 138, 0.75) 100%);
+  display: flex;
+  align-items: flex-end;
+  padding: 28px;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-info h3 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.gallery-info p {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* ============================================================
    BLOG SECTION
 ============================================================ */
 #blog {
@@ -1340,7 +1431,7 @@ nav.scrolled {
   border: 1.5px solid var(--border);
   border-radius: 16px;
   overflow: hidden;
-  cursor: none;
+  /* cursor: none; */
   transition: all 0.35s ease;
   box-shadow: var(--shadow-sm);
 }
@@ -1578,7 +1669,7 @@ nav.scrolled {
   padding: 14px 18px;
   outline: none;
   transition: border-color 0.2s, box-shadow 0.2s;
-  cursor: none;
+  /* cursor: none; */
 }
 
 .form-group input::placeholder,
@@ -1655,7 +1746,7 @@ footer {
   color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
   transition: all 0.2s;
-  cursor: none;
+  /* cursor: none; */
 }
 
 .social-link svg {
